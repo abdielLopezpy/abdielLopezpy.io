@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Stack Developer Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+    <header class="bg-blue-900 text-white p-4 shadow">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold">Full-Stack Developer Portfolio</h1>
+            <nav>
+                <a href="#about" class="px-4">About</a>
+                <a href="#skills" class="px-4">Skills</a>
+                <a href="#projects" class="px-4">Projects</a>
+                <a href="#contact" class="px-4">Contact</a>
+                <a href="#links" class="px-4">Links</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about" class="container mx-auto p-6">
+        <h2 class="text-2xl font-bold mb-4">About Me</h2>
+        <p>
+            As a specialized and data-driven Full-Stack Developer, I possess a deep and diverse experience in both
+            front-end and back-end programming...
+        </p>
+    </section>
+
+    <section id="skills" class="container mx-auto p-6 bg-white shadow-md rounded my-6">
+        <h2 class="text-2xl font-bold mb-4">Skills</h2>
+        <div class="flex flex-wrap">
+            <div class="w-full md:w-1/2 lg:w-1/3 p-4">
+                <div class="bg-gray-200 p-4 rounded shadow-md">
+                    <h3 class="font-bold">Programming Languages</h3>
+                    <p>Python, JavaScript, Golang, PHP</p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/3 p-4">
+                <canvas id="skillsChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="container mx-auto p-6 bg-white shadow-md rounded my-6">
+        <h2 class="text-2xl font-bold mb-4">Projects</h2>
+        <div id="projects-container" class="flex flex-wrap">
+        </div>
+        <div class="text-center mt-6">
+            <button id="loadMemeBtn" class="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Load Random Meme</button>
+        </div>
+        <div id="meme-container" class="mt-6 text-center">
+        </div>
+    </section>
+
+    <section id="contact" class="container mx-auto p-6 bg-white shadow-md rounded my-6">
+        <h2 class="text-2xl font-bold mb-4">Contact</h2>
+        <form class="bg-gray-200 p-4 rounded shadow-md" id="contactForm">
+            <div class="mb-4">
+                <label class="block text-sm font-bold mb-2" for="name">Name</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3" id="name" type="text" placeholder="Your name">
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-bold mb-2" for="email">Email</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3" id="email" type="email" placeholder="Your email">
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-bold mb-2" for="message">Message</label>
+                <textarea class="shadow appearance-none border rounded w-full py-2 px-3" id="message" rows="3" placeholder="Your message"></textarea>
+            </div>
+            <div class="flex items-center justify-between">
+                <button class="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">
+                    Send
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <section id="links" class="container mx-auto p-6 bg-white shadow-md rounded my-6">
+        <h2 class="text-2xl font-bold mb-4">Links</h2>
+        <div class="flex flex-col items-center">
+            <a href="https://github.com/your-username" class="bg-gray-100 hover:bg-blue-900 text-blue-700 hover:text-white font-bold py-2 px-4 rounded shadow-md mb-4 transition duration-300">GitHub</a>
+            <a href="https://www.linkedin.com/in/your-username/" class="bg-gray-100 hover:bg-blue-900 text-blue-700 hover:text-white font-bold py-2 px-4 rounded shadow-md mb-4 transition duration-300">LinkedIn</a>
+            <a href="https://twitter.com/your-username" class="bg-gray-100 hover:bg-blue-900 text-blue-700 hover:text-white font-bold py-2 px-4 rounded shadow-md mb-4 transition duration-300">Twitter</a>
+            <a href="https://your-website.com" class="bg-gray-100 hover:bg-blue-900 text-blue-700 hover:text-white font-bold py-2 px-4 rounded shadow-md mb-4 transition duration-300">Personal Website</a>
+        </div>
+    </section>
+
+    <footer class="bg-blue-900 text-white p-4">
+        <div class="container mx-auto text-center">
+            &copy; 2024 Full-Stack Developer Portfolio
+        </div>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('skillsChart').getContext('2d');
+        const skillsChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Python', 'JavaScript', 'Golang', 'PHP'],
+                datasets: [{
+                    label: 'Proficiency',
+                    data: [85, 80, 75, 70],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(data => {
+                const projectsContainer = document.getElementById('projects-container');
+                data.forEach(user => {
+                    const projectCard = document.createElement('div');
+                    projectCard.classList.add('w-full', 'md:w-1/2', 'lg:w-1/3', 'p-4');
+                    projectCard.innerHTML = `
+                        <div class="bg-gray-200 p-4 rounded shadow-md">
+                            <h3 class="font-bold">${user.name}</h3>
+                            <p>Email: ${user.email}</p>
+                            <p>Company: ${user.company.name}</p>
+                            <p>Website: ${user.website}</p>
+                        </div>
+                    `;
+                    projectsContainer.appendChild(projectCard);
+                });
+            })
+            .catch(error => console.error('Error fetching projects data:', error));
+
+        document.getElementById('loadMemeBtn').addEventListener('click', () => {
+            fetch('https://api.imgflip.com/get_memes')
+                .then(response => response.json())
+                .then(data => {
+                    const memes = data.data.memes;
+                    const randomMeme = memes[Math.floor(Math.random() * memes.length)];
+                    const memeContainer = document.getElementById('meme-container');
+                    memeContainer.innerHTML = `
+                        <div class="bg-gray-200 p-4 rounded shadow-md">
+                            <h3 class="font-bold">${randomMeme.name}</h3>
+                            <img src="${randomMeme.url}" alt="${randomMeme.name}" class="mx-auto">
+                        </div>
+                    `;
+                })
+                .catch(error => console.error('Error fetching meme:', error));
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            const mailtoLink = `mailto:your-email@example.com?subject=Contact from ${name}&body=Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: ${message}`;
+            window.location.href = mailtoLink;
+        });
+    </script>
+</body>
+
+</html>
